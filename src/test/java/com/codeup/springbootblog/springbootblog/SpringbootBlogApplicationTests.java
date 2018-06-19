@@ -1,4 +1,4 @@
-package com.codeup.springbootblog;
+package com.codeup.springbootblog.springbootblog;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

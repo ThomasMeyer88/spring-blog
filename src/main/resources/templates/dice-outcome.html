@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="partials/head :: head('Roll the dice')"></head>
+<body>
+<div th:if="${result == true}">
+    You guessed correctly
+</div>
+<div th:if="${result == false}">
+    You guessed incorrectly.  Correct was <p th:text="${random}"></p>
+</div>
+</body>
+</html>

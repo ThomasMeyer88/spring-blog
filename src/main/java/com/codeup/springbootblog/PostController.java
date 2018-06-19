@@ -1,22 +1,35 @@
 package com.codeup.springbootblog;
 
+
+
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import com.codeup.springbootblog.services.PostService;
 
 
 @Controller
 public class PostController {
 
+    PostService postService;
+
+    public PostController(PostService postService){
+        this.postService = postService;
+    }
+
     @GetMapping("/posts")
-    @ResponseBody
-    public String postsIndex() {
-        return "Posts Index Page";
+    public String postsIndex(Model model){
+        model.addAttribute("posts", postService.getAllPosts());
+        return "/posts/index";
     }
 
     @GetMapping("/posts/{id}")
-    @ResponseBody
-    public String postId(@PathVariable float id) {
-        return "Posts page number " + id;
+    public String postId(@PathVariable long id, Model model){
+        model.addAttribute("post", postService.getPost(id));
+        return "/posts/show";
     }
 
     @GetMapping("/posts/create")
