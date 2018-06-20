@@ -17,6 +17,9 @@
         <br />
         <input type="submit" />
     </form>
+    <form th:action="@{/posts/delete/} + ${id}" method="post" th:object="${post}">
+        <input type="submit" value="delete" />
+    </form>
 </div>
 
 </body>
