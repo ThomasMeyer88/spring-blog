@@ -2,6 +2,7 @@ package com.codeup.springbootblog;
 
 
 
+import com.codeup.springbootblog.models.Post;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,15 +33,30 @@ public class PostController {
         return "/posts/show";
     }
 
+    @GetMapping("/posts/{id}/edit")
+    public String editPost(@PathVariable long id, Model model){
+        model.addAttribute("post", postService.popPost(id));
+        model.addAttribute("id", id);
+        return "/posts/edit";
+    }
+
+    @PostMapping("/posts/{id}/edit")
+    public String postEditPost(@PathVariable long id, Post post){
+        post.setId(id);
+        postService.savePost(post);
+        return "redirect:/posts";
+    }
+
     @GetMapping("/posts/create")
-    @ResponseBody
-    public String postCreate() {
-        return "View post creation form";
+    public String postCreate(Model view) {
+        view.addAttribute("post", new Post("",""));
+        return "/posts/create";
     }
 
     @PostMapping("/posts/create")
-    @ResponseBody
-    public String postPostCreate() {
-        return "posts a created post";
+    public String postPostCreate(Post post) {
+        post.setId(postService.getAllPosts().size()-1);
+        postService.savePost(post);
+        return "redirect:/posts";
     }
 }

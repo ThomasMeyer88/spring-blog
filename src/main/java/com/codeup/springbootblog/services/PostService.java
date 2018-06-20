@@ -27,6 +27,18 @@ public class PostService {
 
     }
 
+    public Post popPost(long id){
+        Post post = posts.get((int)(id-1));
+        posts.remove(posts.get((int)(id-1)));
+        return post;
+
+    }
+
+    public void savePost(Post post){
+        posts.add(post);
+
+    }
+
     private void createPosts() {
         posts.add(new Post("Title #1", "Body #1"));
         posts.add(new Post("Title #2", "Body #2"));
