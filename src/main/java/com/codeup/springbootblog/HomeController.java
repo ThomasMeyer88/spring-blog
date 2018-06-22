@@ -26,6 +26,9 @@ class HomeController {
         return "You've encountered an error";
     }
 
-
+    @GetMapping("/ironmind")
+    public String ironmind(){
+        return "ironmind/IronMind";
+    }
 
 }

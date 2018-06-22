@@ -13,6 +13,10 @@ public class Post {
     @Id @GeneratedValue
     private long id;
 
+    @ManyToOne (cascade = CascadeType.ALL)
+    @JoinColumn (name = "user_id")
+    private User user;
+
     public Post(){
 
     }
@@ -44,5 +48,13 @@ public class Post {
 
     public void setId(long id) {
         this.id = id;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }
