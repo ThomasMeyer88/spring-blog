@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Minesweeper</title>
+    <link rel="stylesheet" href="css/minesweeper.css">
+</head>
+<body>
+<div>
+    <div class = "gameHeader">
+        <button id="gameStart">Reset Game</button>
+        <button id="flagIt">Flag Mines</button>
+        <button id="helpButton">Help</button>
+        <button id="easyMode">Easy</button>
+        <button id="hardMode">Hard</button>
+    </div>
+    <div class="gameBody">
+        <div id="row1">
+
+
+            <div class = "mineGrid" id = "1-1" onClick="mineCheck(this.id)">
+            </div>
+
+            <div class = "mineGrid" id = "1-2" onClick="mineCheck(this.id)">
+            </div>
+
+            <div class = "mineGrid" id = "1-3" onClick="mineCheck(this.id)">
+            </div>
+
+            <div class = "mineGrid" id = "1-4" onClick="mineCheck(this.id)">
+            </div>
+
+            <div class = "mineGrid" id = "1-5" onClick="mineCheck(this.id)"></div>
+            <div class = "mineGrid" id = "1-6" onClick="mineCheck(this.id)"></div>
+            <div class = "mineGrid" id = "1-7" onClick="mineCheck(this.id)"></div>
+
+        </div>
+        <div id="row2">
+            <div class = "mineGrid" id = "2-1" onClick="mineCheck(this.id)">
+            </div>
+            <div class = "mineGrid" id = "2-2" onClick="mineCheck(this.id)">
+            </div>
+            <div class = "mineGrid" id = "2-3" onClick="mineCheck(this.id)">
+            </div>
+            <div class = "mineGrid" id = "2-4" onClick="mineCheck(this.id)">
+            </div>
+            <div class = "mineGrid" id = "2-5" onClick="mineCheck(this.id)"></div>
+            <div class = "mineGrid" id = "2-6" onClick="mineCheck(this.id)"></div>
+            <div class = "mineGrid" id = "2-7" onClick="mineCheck(this.id)"></div>
+        </div>
+        <div id="row3">
+            <div class = "mineGrid" id = "3-1" onClick="mineCheck(this.id)">
+            </div>
+            <div class = "mineGrid" id = "3-2" onClick="mineCheck(this.id)">
+            </div>
+            <div class = "mineGrid" id = "3-3" onClick="mineCheck(this.id)">
+            </div>
+            <div class = "mineGrid" id = "3-4" onClick="mineCheck(this.id)">
+            </div>
+            <div class = "mineGrid" id = "3-5" onClick="mineCheck(this.id)"></div>
+            <div class = "mineGrid" id = "3-6" onClick="mineCheck(this.id)"></div>
+            <div class = "mineGrid" id = "3-7" onClick="mineCheck(this.id)"></div>
+        </div>
+        <div id="row4">
+            <div class = "mineGrid" id = "4-1" onClick="mineCheck(this.id)">
+            </div>
+            <div class = "mineGrid" id = "4-2" onClick="mineCheck(this.id)">
+            </div>
+            <div class = "mineGrid" id = "4-3" onClick="mineCheck(this.id)">
+            </div>
+            <div class = "mineGrid" id = "4-4" onClick="mineCheck(this.id)">
+            </div>
+            <div class = "mineGrid" id = "4-5" onClick="mineCheck(this.id)"></div>
+            <div class = "mineGrid" id = "4-6" onClick="mineCheck(this.id)"></div>
+            <div class = "mineGrid" id = "4-7" onClick="mineCheck(this.id)"></div>
+        </div>
+
+        <div id="row5">
+            <div class = "mineGrid" id = "5-1" onClick="mineCheck(this.id)">
+            </div>
+            <div class = "mineGrid" id = "5-2" onClick="mineCheck(this.id)">
+            </div>
+            <div class = "mineGrid" id = "5-3" onClick="mineCheck(this.id)">
+            </div>
+            <div class = "mineGrid" id = "5-4" onClick="mineCheck(this.id)">
+            </div>
+            <div class = "mineGrid" id = "5-5" onClick="mineCheck(this.id)"></div>
+            <div class = "mineGrid" id = "5-6" onClick="mineCheck(this.id)"></div>
+            <div class = "mineGrid" id = "5-7" onClick="mineCheck(this.id)"></div>
+        </div>
+        <div id="row6">
+            <div class = "mineGrid" id = "6-1" onClick="mineCheck(this.id)">
+            </div>
+            <div class = "mineGrid" id = "6-2" onClick="mineCheck(this.id)">
+            </div>
+            <div class = "mineGrid" id = "6-3" onClick="mineCheck(this.id)">
+            </div>
+            <div class = "mineGrid" id = "6-4" onClick="mineCheck(this.id)">
+            </div>
+            <div class = "mineGrid" id = "6-5" onClick="mineCheck(this.id)"></div>
+            <div class = "mineGrid" id = "6-6" onClick="mineCheck(this.id)"></div>
+            <div class = "mineGrid" id = "6-7" onClick="mineCheck(this.id)"></div>
+        </div>
+        <div id="row7">
+            <div class = "mineGrid" id = "7-1" onClick="mineCheck(this.id)">
+            </div>
+            <div class = "mineGrid" id = "7-2" onClick="mineCheck(this.id)">
+            </div>
+            <div class = "mineGrid" id = "7-3" onClick="mineCheck(this.id)">
+            </div>
+            <div class = "mineGrid" id = "7-4" onClick="mineCheck(this.id)">
+            </div>
+            <div class = "mineGrid" id = "7-5" onClick="mineCheck(this.id)"></div>
+            <div class = "mineGrid" id = "7-6" onClick="mineCheck(this.id)"></div>
+            <div class = "mineGrid" id = "7-7" onClick="mineCheck(this.id)"></div>
+        </div>
+    </div>
+
+    <div class="sideBar">
+        <div id = "totalMines"></div>
+        <div id = "flagToggle"></div>
+        <div id = "winStreak"></div>
+        <div id = "mostCleared"></div>
+        <div id = "winLoss"></div>
+
+    </div>
+</div>
+<div>
+    <h3 id="Winner">You cleared all the mines and won the game!</h3>
+</div>
+<div>
+    <h3 id="Loser">You detonated a mine! You lose</h3>
+</div>
+<div id="helpMenu">
+    <button id="closeHelp">Close</button>
+    <br>
+    <strong>Minesweeper Help Menu</strong>
+    <ul>
+        <li>Toggle easy/hard to game change difficulty</li>
+        <li>Difficulty is by default easy</li>
+        <li>Changing difficulty resets the game</li>
+        <li>Toggle flag mines to place flags on tiles</li>
+        <li>Successfully flag all mines to win the game</li>
+    </ul>
+</div>
+
+</body>
+<script src="js/minesweeper.js"></script>
+</html>

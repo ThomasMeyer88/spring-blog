@@ -1,0 +1,168 @@
+.gameHeader{
+    margin-top: 30px;
+    margin-left: 100px;
+    width: 610px;
+    height: 30px;
+    border: 10px solid darkgray;
+    background-color: grey;
+    border-bottom-color: black;
+    box-shadow: 5px 5px 5px black;
+    align-content: baseline;
+
+}
+.gameBody {
+
+    margin-left: 100px;
+    width: 400px;
+    height: 420px;
+    background-color: grey;
+    border: 10px solid darkgray;
+    float: left;
+    box-shadow: 5px 5px 5px black;
+}
+
+.sideBar{
+    float: left;
+    height: 420px;
+    width: 200px;
+    border: 10px solid darkgray;
+    border-left: 0;
+    font-size: 15px;
+    text-align: center;
+    background-color: black;
+    box-shadow: 5px 5px 5px black;
+}
+
+.mineGrid {
+    width: 53px;
+    height: 36.5px;
+    border: 2px solid darkgray;
+    background-color: lightgrey;
+    float: left;
+    box-shadow: inset 2px 2px 2px 3px black;
+    padding-top: 20px;
+    text-align: center;
+    /*background-image: url("../img/bomb.svg");*/
+    font-size: 20px;
+
+
+}
+
+body {
+    color: white;
+    font-size: 40px;
+    z-index: 0;
+    position: relative;
+}
+
+#totalMines {
+    color: black;
+    background-color: gray;
+    padding-top: 10px;
+    height: 50px;
+    padding-bottom: 10px;
+    border: 2px solid black;
+}
+#flagToggle {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: darkblue;
+    background-color: lightgrey;
+    height: 50px;
+
+    border: 2px solid black;
+
+
+}
+
+#winStreak {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: aquamarine;
+    background-color: darkgray;
+    border: 2px solid black;
+
+    height: 50px;
+}
+
+#mostCleared {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: red;
+    background-color: lightgray;
+    border: 2px solid black;
+
+    height: 50px;
+}
+
+#winLoss {
+    padding-top: 10px;
+    padding-bottom: 10px;
+    color: black;
+    background-color: darkgray;
+    border: 5px solid silver;
+    border-radius: 20%;
+    height: 95px;
+}
+
+#Winner {
+    margin-top: 100px;
+    margin-left: 75px;
+    font-size: 50px;
+    color: darkviolet;
+    z-index: 3;
+    position: absolute;
+    display: none;
+    background-color: blue;
+    border: 5px solid purple;
+    border-radius: 40%;
+    padding: 20px;
+    text-align: center;
+    opacity: 0.5;
+}
+
+#Loser {
+    margin-top: 100px;
+    margin-left:75px;
+    font-size: 50px;
+    color: red;
+    z-index: 3;
+    position: absolute;
+    display: none;
+    background-color: black;
+    border: 5px solid crimson;
+    border-radius: 40%;
+    padding: 20px;
+    text-align: center;
+    opacity: 0.5;
+
+}
+
+button {
+    border: 2px solid black;
+    border-radius: 25%;
+    background-color: lightgray;
+    height: 30px;
+    width: 90px;
+    box-shadow: 2px 2px 2px black;
+    margin-left: 25px;
+    display: flex;
+    justify-content: center;
+    float: left;
+}
+
+#helpMenu {
+    margin-top: 100px;
+    margin-left: 100px;
+    height: 400px;
+    width: 600px;
+    text-align: center;
+    background-color: darkgray;
+    border: 10px solid black;
+    border-radius: 10%;
+    color: black;
+    display: none;
+    z-index: 3;
+    position: absolute;
+    font-size: 30px;
+}
