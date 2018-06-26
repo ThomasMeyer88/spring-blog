@@ -1,26 +1,46 @@
 body {
-    background-color: #D3EBED;
     font-family: AppleGothic default sans-serif;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    height: 100%;
+    background-image: url("concrete.jpg");
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
+
+
+
 
 .navbar {
-    height: 3.5em;
+    height: 2em;
     width: 100%;
-    margin: 0;
-    padding: 0.5em;
-    background-color: #38785D;
-    align-content: baseline;
-    font-size: 1.5em;
-    color: #ADF0F4;
-    border-radius: 0;
-    box-shadow: inset 0.1em 0.1em 0.1em #50BFAB;
+    padding: 0.25em;
+    background-color: black;
+    color: gainsboro;
+    font-size: 1.25em;
 }
 
+.blogBTN{
+    padding: 0;
+    background-color: black;
+    float: left;
+    color: gainsboro;
+    font-size: 1em;
+    margin: 0;
+    border: 0;
+}
 .navbar ul li {
+    padding: 0;
     float: left;
     margin-left: 2em;
 }
 
 .navbar ul {
     list-style: none;
+
 }
+

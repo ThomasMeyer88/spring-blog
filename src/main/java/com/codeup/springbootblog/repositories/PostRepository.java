@@ -11,5 +11,4 @@ public interface PostRepository extends CrudRepository<Post, Long> {
 
     List<Post> findAll();
 
-    void edit(Post post, User user);
 }
