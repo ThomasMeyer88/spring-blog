@@ -33,14 +33,14 @@ public class PostController {
     @GetMapping("/posts")
     public String postsIndex(Model model) {
         model.addAttribute("posts", postService.getPostRepository().findAll());
-        return "/posts/index";
+        return "posts/index";
     }
 
     @GetMapping("/posts/create")
     public String postCreate(Model view) {
         Post post = new Post(" ", " ");
         view.addAttribute("post", post);
-        return "/posts/create";
+        return "posts/create";
     }
 
     @PostMapping("posts/create")
@@ -59,7 +59,7 @@ public class PostController {
         User user = post.getUser();
         view.addAttribute("post", post);
         view.addAttribute("email", user.getEmail());
-        return "/posts/show";
+        return "posts/show";
 
     }
 
