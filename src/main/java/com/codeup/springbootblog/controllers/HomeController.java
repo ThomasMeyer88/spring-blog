@@ -11,13 +11,18 @@ class HomeController {
     @GetMapping("/")
     @ResponseBody
     public String home() {
-        return "/minesweeper";
+        return "minesweeper";
     }
 
     @GetMapping("/hello/{name}")
     public String sayHello(@PathVariable String name, Model model) {
         model.addAttribute("name", name);
         return "hello";
+    }
+
+    @GetMapping("/minesweeper")
+    public String minesweeper(){
+        return "minesweeper";
     }
 
     @GetMapping("/error")
