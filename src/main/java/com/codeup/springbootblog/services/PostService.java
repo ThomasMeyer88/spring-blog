@@ -2,6 +2,7 @@ package com.codeup.springbootblog.services;
 
 
 import com.codeup.springbootblog.models.Post;
+import com.codeup.springbootblog.models.User;
 import com.codeup.springbootblog.repositories.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,6 +27,14 @@ public class PostService {
     public void setPostRepository(PostRepository postRepository) {
         this.postRepository = postRepository;
     }
+
+    public void edit(Post post, User user) {
+        if (post.getUser().getId() != user.getId()) {
+            postRepository.save(post);
+        }
+
+    }
+
 }
 
 //

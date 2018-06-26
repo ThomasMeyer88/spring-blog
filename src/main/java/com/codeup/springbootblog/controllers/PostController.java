@@ -79,7 +79,9 @@ public class PostController {
 
     @PostMapping("posts/{id}/edit")
     public String postEdited(Post post){
-        postService.getPostRepository().save(post);
+        User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User poster = userService.getUsers().findById(loggedIn.getId());
+        postService.edit(post, poster);
         return "redirect:/posts";
     }
 
