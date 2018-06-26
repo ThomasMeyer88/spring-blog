@@ -11,7 +11,7 @@ class HomeController {
     @GetMapping("/")
     @ResponseBody
     public String home() {
-        return "redirect:/minesweeper";
+        return "/minesweeper";
     }
 
     @GetMapping("/hello/{name}")
