@@ -1,0 +1,23 @@
+body {
+    background-color: ghostwhite;
+    font-family: AppleGothic default sans-serif;
+}
+
+.navbar {
+    height: 3.5em;
+    width: 100%;
+    margin: 0;
+    padding: 0.5em;
+    background-color: #0059FF;
+    align-content: baseline;
+    font-size: 1.5em;
+}
+
+.navbar ul li {
+    float: left;
+    margin-left: 2em;
+}
+
+.navbar ul {
+    list-style: none;
+}

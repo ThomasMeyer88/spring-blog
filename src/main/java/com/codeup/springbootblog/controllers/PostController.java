@@ -1,4 +1,4 @@
-package com.codeup.springbootblog;
+package com.codeup.springbootblog.controllers;
 
 
 
@@ -6,16 +6,13 @@ import com.codeup.springbootblog.models.Post;
 import com.codeup.springbootblog.models.User;
 import com.codeup.springbootblog.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import com.codeup.springbootblog.services.PostService;
-import com.codeup.springbootblog.repositories.PostRepository;
-
-import java.util.List;
 
 
 @Controller
@@ -48,8 +45,9 @@ public class PostController {
 
     @PostMapping("posts/create")
     public String postCreated(Post post){
-        User user = userService.getUserRepository().findById(2L);
-        post.setUser(user);
+        User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User poster = userService.getUsers().findById(loggedIn.getId());
+        post.setUser(poster);
         postService.getPostRepository().save(post);
         return "redirect:/posts";
 

@@ -10,10 +10,12 @@ import java.util.List;
 
 import static javafx.scene.input.KeyCode.T;
 
-public interface UserRepository extends CrudRepository<User, Long> {
+public interface Users extends CrudRepository<User, Long> {
     User findByEmail(String email);
 
     List<User> findAll();
 
     User findById(long id);
+
+    User findByUsername(String username);
 }

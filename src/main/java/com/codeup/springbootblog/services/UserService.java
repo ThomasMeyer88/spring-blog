@@ -1,27 +1,22 @@
 package com.codeup.springbootblog.services;
 
 
-import com.codeup.springbootblog.models.Post;
-import com.codeup.springbootblog.repositories.PostRepository;
-import com.codeup.springbootblog.repositories.UserRepository;
+import com.codeup.springbootblog.repositories.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.ArrayList;
-import java.util.List;
 
 
 @Service
 public class UserService {
-    private UserRepository userRepository;
+    private Users users;
 
     @Autowired
-    public UserService(UserRepository userRepository){
-        this.userRepository = userRepository;
+    public UserService(Users users){
+        this.users = users;
     };
 
-    public UserRepository getUserRepository() {
-        return userRepository;
+    public Users getUsers() {
+        return users;
     }
 
 }
