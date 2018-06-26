@@ -28,11 +28,8 @@ public class PostService {
         this.postRepository = postRepository;
     }
 
-    public void edit(Post post, User user) {
-        if (post.getUser().getId() != user.getId()) {
-            postRepository.save(post);
-        }
-
+    public Boolean validate(User user, Post post){
+        return post.getUser().getId() == user.getId();
     }
 
 }

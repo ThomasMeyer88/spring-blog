@@ -81,13 +81,19 @@ public class PostController {
     public String postEdited(Post post){
         User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         User poster = userService.getUsers().findById(loggedIn.getId());
-        postService.edit(post, poster);
+        if(postService.validate(poster, post)){
+            postService.getPostRepository().save(post);
+        }
         return "redirect:/posts";
     }
 
     @PostMapping("posts/delete/{id}")
     public String deletePost(@PathVariable long id, Post post){
-        postService.getPostRepository().delete(id);
+        User loggedIn = (User) SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        User poster = userService.getUsers().findById(loggedIn.getId());
+        if(postService.validate(poster, post)) {
+            postService.getPostRepository().delete(id);
+        }
         return "redirect:/posts";
     }
 
