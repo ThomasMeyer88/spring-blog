@@ -1,46 +1,21 @@
-body {
-    font-family: AppleGothic default sans-serif;
-    width: 100%;
-    padding: 0;
-    margin: 0;
-    height: 100%;
-    background-image: url("concrete.jpg");
+/*<div style="overflow-y: scroll; height:400px;">*/
 
-    /* Center and scale the image nicely */
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-}
-
-
-
-
-.navbar {
-    height: 2em;
-    width: 100%;
-    padding: 0.25em;
-    background-color: black;
-    color: gainsboro;
-    font-size: 1.25em;
-}
-
-.blogBTN{
-    padding: 0;
-    background-color: black;
+.searchContainer{
+    overflow-y: scroll;
+    height: 300px;
+    width: 150px;
+    border: 3px solid black;
+    align-content: center;
     float: left;
-    color: gainsboro;
-    font-size: 1em;
-    margin: 0;
-    border: 0;
+
 }
-.navbar ul li {
-    padding: 0;
+
+.builder{
     float: left;
-    margin-left: 2em;
+    margin-left: 50px;
+    height: 450px;
+    width: 600px;
+    border: 3px solid black;
+    overflow-y: scroll;
+
 }
-
-.navbar ul {
-    list-style: none;
-
-}
-

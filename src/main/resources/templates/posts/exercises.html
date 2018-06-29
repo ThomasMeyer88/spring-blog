@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head th:replace="partials/head :: head('Posts')"></head>
+
+<body>
+<nav th:replace="partials/navbar::navbar"></nav>
+
+<br />
+
+<div class="searchContainer" >
+    <div th:each="exercise : ${exercises}">
+        <h4 draggable="true" ondragstart="drag(event)" th:id = "${exercise.name}" th:text="${exercise.name}" style="text-align: center"></h4>
+    </div>
+</div>
+
+<div class="builder" id="builder" ondrop="drop(event)" ondragover="allowDrop(event)">
+
+</div>
+
+
+</body>
+
+<script>
+    "use strict";
+
+    var data;
+    var increment = 0;
+    function allowDrop(ev) {
+        ev.preventDefault();
+    }
+
+    function drag(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+        var copy = document.getElementById(data);
+        increment++;
+    }
+
+    function drop(ev) {
+        ev.preventDefault();
+        data = ev.dataTransfer.getData("text");
+        var nodeCopy = document.getElementById(data).cloneNode(true);
+        nodeCopy.id = data + increment;
+        ev.target.appendChild(nodeCopy);
+        console.log(nodeCopy.id);
+    }
+</script>
+</html>
