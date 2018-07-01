@@ -5,11 +5,28 @@
 <body>
 <nav th:replace="partials/navbar::navbar"></nav>
 
+<h1 style="width: 100%; text-align: center">Day : <output th:text ="${day}"></output></h1>
+
 <br />
 
 <div class="searchContainer" >
     <div th:each="exercise : ${exercises}">
-        <h4 draggable="true" ondragstart="drag(event)" th:id = "${exercise.name}" th:text="${exercise.name}" style="text-align: center"></h4>
+        <div draggable="true" ondragstart="drag(event)" th:id = "${exercise.name}">
+            <div class = "setForm">
+                <h3 class = "searchItem" th:text="${exercise.name}"></h3>
+                <input th:value="*{exercise.name}" type="hidden" />
+                <ul style="display: none" class = "buildItem">
+                    <li th:text="${exercise.name}" class = "setFormItems" ></li>
+                    <form th:action="@{/createplan/} + ${day}" method = "post" th:object="${workSet}">
+                        <input th:value="${exercise.name}"  th:field="*{exerciseName}" type="hidden" />
+                        <li >Weight: <input th:value="${weight}" th:field="*{weight}" type="text" class = "setFormItemsBig"/></li>
+                        <li >Reps: <input th:value="${reps}" th:field="*{reps}" type="text" class = "setFormItems"/></li>
+                        <li >Sets: <input th:value="${sets}" th:field="*{sets}" type="text" class = "setFormItems"/></li>
+                        <input type="submit" value="save" />
+                    </form>
+                </ul>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -25,6 +42,9 @@
 
     var data;
     var increment = 0;
+    var name = "name";
+    var set = document.getElementById("set1");
+    console.log(set);
     function allowDrop(ev) {
         ev.preventDefault();
     }
@@ -39,9 +59,24 @@
         ev.preventDefault();
         data = ev.dataTransfer.getData("text");
         var nodeCopy = document.getElementById(data).cloneNode(true);
-        nodeCopy.id = data + increment;
+        nodeCopy.id = "newId"; /* We cannot use the same ID */
         ev.target.appendChild(nodeCopy);
-        console.log(nodeCopy.id);
+        var a = nodeCopy.childNodes[1].childNodes[1];
+        console.log(a);
+
+        var b = nodeCopy.childNodes[1].childNodes[5];
+        console.log(b);
+
+        var string = nodeCopy.childNodes[1].childNodes[3];
+        console.log(string);
+
+        var targetValue = b.childNodes[3].childNodes[1];
+        console.log(targetValue);
+
+        targetValue.value = string.value;
+
+        a.style.display = "none";
+        b.style.display = "inline-block";
     }
 </script>
 </html>

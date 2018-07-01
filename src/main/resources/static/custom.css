@@ -10,6 +10,17 @@
 
 }
 
+.searchItem{
+    overflow-y: scroll;
+    width: 300px;
+    margin-top: 0;
+    margin-bottom: 0;
+    background-color: lightblue;
+    border: 1px solid black;
+    box-shadow: inset darkblue 3px 3px 3px;
+    height: 2em;
+}
+
 .builder{
     float: left;
     margin-left: 50px;
@@ -19,3 +30,43 @@
     overflow-y: scroll;
 
 }
+
+.buildItem{
+    width: 600px;
+    background-color: lightblue;
+    margin-top: 0;
+    margin-bottom: 0;
+    border: 1px solid black;
+    box-shadow: inset darkblue 3px 3px 3px;
+    height: 2em;
+    font-size: 1.5em;
+}
+
+.setForm{
+    float: left;
+}
+
+.setForm ul{
+    list-style: none;
+}
+
+.setForm ul li{
+    float: left;
+}
+
+.setFormItems {
+    height: 1.5em;
+    width: 1em;
+    margin-left: 1.5em;
+    margin-right: 1em;
+    background-color: lightblue;
+}
+
+.setFormItemsBig {
+    height: 1.5em;
+    width: 2em;
+    margin-right: 1.5em;
+    margin-left: 1.5em;
+    background-color: lightblue;
+}
+

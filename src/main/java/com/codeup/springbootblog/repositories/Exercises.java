@@ -8,7 +8,7 @@ import java.util.List;
 public interface Exercises extends CrudRepository<Exercise, Long> {
     List<Exercise> findAll();
 
-    Exercise findBy(String name);
+    Exercise findByName(String name);
 
 }
 
