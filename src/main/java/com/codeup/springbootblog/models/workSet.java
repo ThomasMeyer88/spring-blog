@@ -1,6 +1,7 @@
 package com.codeup.springbootblog.models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="workSet")
@@ -22,9 +23,11 @@ public class workSet {
 
 
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "id", insertable= false, updatable = false)
+    @ManyToOne
+    @JoinColumn
     private Exercise exercise;
+
+
 
     //    @ManyToOne (cascade = CascadeType.ALL)
 //    @JoinColumn (name = "user_id")
@@ -37,6 +40,14 @@ public class workSet {
         this.reps = reps;
         this.sets = sets;
 
+    }
+
+    public workSet(workSet work){
+        this.exercise = work.exercise;
+        this.weight = work.weight;
+        this.sets = work.sets;
+        this.reps = work.reps;
+        this.exerciseName = work.exerciseName;
     }
 
     public workSet(int weight, int reps, int sets, Exercise exercise){

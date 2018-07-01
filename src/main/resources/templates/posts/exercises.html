@@ -31,8 +31,31 @@
 </div>
 
 <div class="builder" id="builder" ondrop="drop(event)" ondragover="allowDrop(event)">
-
+<div th:each="thisSet : ${workSets}" >
+    <div class="setForm">
+    <ul class = "buildItem">
+        <li th:text="${thisSet.exerciseName}" class = "setFormItems" ></li>
+        <form th:action="@{/editplan/} + ${day}" method = "post" >
+            <input th:value="${thisSet.id}" type="hidden" name="id" />
+            <li >Weight: <input th:value="${thisSet.weight}" type="text" class = "setFormItemsBig" name="weight"/></li>
+            <li >Reps: <input th:value="${thisSet.reps}" type="text" class = "setFormItems" name="reps"/></li>
+            <li >Sets: <input th:value="${thisSet.sets}" type="text" class = "setFormItems" name="sets"/></li>
+            <input type="submit" value="edit" />
+        </form>
+        <form th:action="@{/deleteitem/} + ${day}" method = "post">
+            <input th:value="${thisSet.id}" type="hidden" name = "id"/>
+            <input type="submit" value="delete" style="float:left"/>
+        </form>
+        <form th:action="@{/duplicateitem/} + ${day}" method = "post">
+            <input th:value="${thisSet.id}" type="hidden" name="id" />
+            <input type="submit" value="duplicate" style="float:left" />
+        </form>
+    </ul>
+    </div>
 </div>
+</div>
+
+
 
 
 </body>

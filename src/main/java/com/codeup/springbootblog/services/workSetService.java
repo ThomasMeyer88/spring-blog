@@ -2,6 +2,7 @@ package com.codeup.springbootblog.services;
 
 import com.codeup.springbootblog.models.Post;
 import com.codeup.springbootblog.models.User;
+import com.codeup.springbootblog.models.workSet;
 import com.codeup.springbootblog.repositories.Exercises;
 import com.codeup.springbootblog.repositories.PostRepository;
 import com.codeup.springbootblog.repositories.workSets;
@@ -27,4 +28,6 @@ public class workSetService {
     public void setWork(workSets work) {
         this.work = work;
     }
+
+
 }

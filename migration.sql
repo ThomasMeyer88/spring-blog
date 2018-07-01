@@ -73,3 +73,13 @@ create table progDays(
   FOREIGN KEY (dayId) REFERENCES template (id)
 );
 
+delete from work_set where id < 10;
+
+INSERT into work_set (reps, sets, weight, exercise_name)
+  VALUES (10, 5, 225, ' Squat');
+
+SELECT * from work_set;
+
+INSERT into template (id, day) VALUES (11, 2);
+
+select * from template join work_set;

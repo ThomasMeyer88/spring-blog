@@ -1,6 +1,7 @@
 package com.codeup.springbootblog.models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="exercises")
@@ -13,6 +14,8 @@ public class Exercise {
 
     @Column(nullable = false)
     private String muscle;
+
+
 
     public Exercise(){};
 
