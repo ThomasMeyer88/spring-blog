@@ -10,7 +10,6 @@ public interface templates extends CrudRepository <template, Long> {
 
     List<template> findAllByDay(int day);
 
-    template findByWorkSet_Id(long id);
 
 
 }

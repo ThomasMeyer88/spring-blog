@@ -1,6 +1,7 @@
 package com.codeup.springbootblog.models;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name="template")
@@ -11,23 +12,21 @@ public class template {
     @Column(nullable = false)
     private int day;
 
-    @ManyToOne
-    @JoinColumn
-    private workSet workSet;
 
+    @OneToMany
+    private List<WorkSet> WorkSets;
 
 
     public template(){};
 
-    public template(int id, int day, workSet workSet) {
+    public template(int id, int day) {
         this.id = id;
         this.day = day;
-        this.workSet = workSet;
+
     }
 
-    public template(int day, workSet workSet){
+    public template(int day){
         this.day = day;
-        this.workSet = workSet;
     }
 
     public int getDay() {
@@ -38,13 +37,12 @@ public class template {
         this.day = day;
     }
 
-    public com.codeup.springbootblog.models.workSet getWorkSet() {
-        return workSet;
+
+    public List<WorkSet> getWorkSets() {
+        return WorkSets;
     }
 
-    public void setWorkSet(com.codeup.springbootblog.models.workSet workSet) {
-        this.workSet = workSet;
+    public void setWorkSets(List<WorkSet> workSets) {
+        WorkSets = workSets;
     }
-
-
 }

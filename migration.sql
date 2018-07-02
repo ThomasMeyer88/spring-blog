@@ -37,9 +37,9 @@ insert into exercises (name, muscle) VALUES  ('Squat', 'Legs'),
 ('Dumbbell Bench Press', 'Chest');
 
 
-create table workSet (
+create table WorkSet (
   id INT UNSIGNED NOT NULL AUTO_INCREMENT,
-  sets INT NOT NULL,
+  subSets INT NOT NULL,
   reps INT NOT NULL,
   weight INT,
   exId INT UNSIGNED NOT NULL,
@@ -52,7 +52,7 @@ create table template (
   day INT UNSIGNED NOT NULL,
   setId INT UNSIGNED NOT NULL,
   PRIMARY KEY (id),
-  FOREIGN KEY (setId) REFERENCES workSet(id)
+  FOREIGN KEY (setId) REFERENCES WorkSet(id)
 );
 
 
@@ -73,13 +73,24 @@ create table progDays(
   FOREIGN KEY (dayId) REFERENCES template (id)
 );
 
-delete from work_set where id < 10;
 
-INSERT into work_set (reps, sets, weight, exercise_name)
-  VALUES (10, 5, 225, ' Squat');
 
-SELECT * from work_set;
+select * from exercises;
 
-INSERT into template (id, day) VALUES (11, 2);
+insert into work_set (exercise_name, reps, subSets, weight, exercise_id) VALUES
+  (' Squat', 10, 1, 225, 1);
 
-select * from template join work_set;
+insert into template (day, work_set_id)
+    VALUES (1, 1);
+
+select * from template;
+
+select * from work_set;
+
+insert into work_set (exercise_name, set_no, exercise_id, template_id) VALUES
+  ('Deadlift', 0, 2, 1);
+
+select * from sub_set;
+
+insert into sub_set (reps, weight, work_set_id, exercise_name) VALUES
+  (5, 440, 5, ' Deadlift');
